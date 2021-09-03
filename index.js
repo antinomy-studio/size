@@ -4,10 +4,11 @@ var Emitter = require('tiny-emitter');
 var debounce = require('debounce');
 var EVENT_NAME = 'resize';
 
+var isClient = typeof window !== 'undefined';
 var emitter = new Emitter();
 var debounceTime;
 var debounced;
-var isiOS = typeof window !== 'undefined' ? (/ip(hone|od|ad)/i).test(window.navigator.userAgent.toLowerCase()) && !window.MSStream : false;
+var isiOS = isClient ? (/ip(hone|od|ad)/i).test(window.navigator.userAgent.toLowerCase()) && !window.MSStream : false;
 
 var size = module.exports = {
     width: 0,
@@ -41,14 +42,14 @@ function onEvent() {
         size.hasBar = size.width > size.height && size.height > window.innerHeight;
     }
 
-    size.width = window.innerWidth;
-    size.height = window.innerHeight;
+    size.width = isClient ? window.innerWidth : 0;
+    size.height = isClient ? window.innerHeight : 0;
 
     size.isLandscape = size.width > size.height;
-    emitter.emit(EVENT_NAME, size.width, size.height);
+    emitter.emit(EVENT_NAME, size.width, size.height); 
 }
 
-if (typeof window !== 'undefined') {
+if (isClient) {
     onEvent();
     size.bind(); 
 }
