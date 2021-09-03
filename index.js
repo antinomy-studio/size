@@ -48,5 +48,7 @@ function onEvent() {
     emitter.emit(EVENT_NAME, size.width, size.height);
 }
 
-onEvent();
-size.bind();
+if (typeof window !== 'undefined') {
+    onEvent();
+    size.bind(); 
+}
