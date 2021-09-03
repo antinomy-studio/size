@@ -1,11 +1,14 @@
 {
-  "name": "size",
+  "name": "@antinomystudio/size",
   "version": "1.2.0",
   "description": "Small util to centralize and debounce window 'resize' events.",
   "main": "index.js",
   "scripts": {
     "test": "browserify test/index.js | tap-closer | smokestack | faucet",
     "test-debug": "budo test/index.js --live"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
