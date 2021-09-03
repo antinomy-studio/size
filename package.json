@@ -1,5 +1,5 @@
 {
-  "name": "@antinomystudio/size",
+  "name": "@antinomy-studio/size",
   "version": "1.2.0",
   "description": "Small util to centralize and debounce window 'resize' events.",
   "main": "index.js",
