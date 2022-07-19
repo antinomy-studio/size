@@ -61,6 +61,16 @@ function triggerResize() {
     window.dispatchEvent(new Event('resize'));
 }
 
+test('bind test', function(assert) {
+  size.bind({
+    debounceTime: debounceTime
+  });
+
+  setTimeout(function() {
+    assert.pass('Bind function called without erorrs');
+    assert.end();
+}, debounceTime + 20);});
+
 test('unbind test', function(assert) {
   var resizeHandler = function() {
     assert.fail('resize handler shouldn\'t be called.');

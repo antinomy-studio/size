@@ -34,24 +34,33 @@ var Size = function () {
     this.width = 0;
     this.height = 0;
     this.hasBar = false;
-    this.isLandscape = false;
   }
 
   _createClass(Size, [{
     key: 'addListener',
     value: function addListener(listener, context) {
+      this.add(listener, context);
+    }
+  }, {
+    key: 'add',
+    value: function add(listener, context) {
       emitter.on(EVENT_NAME, listener, context);
     }
   }, {
     key: 'removeListener',
     value: function removeListener(listener, context) {
+      this.remove(listener, context);
+    }
+  }, {
+    key: 'remove',
+    value: function remove(listener, context) {
       if (listener) emitter.off(EVENT_NAME, listener, context);
     }
   }, {
     key: 'bind',
     value: function bind(opts) {
       opts = opts || {};
-      size.unbind();
+      this.unbind();
       var debounceTime = opts.debounceTime || 150;
       debounced = (0, _debounce2.default)(onEvent, debounceTime);
       window.addEventListener(EVENT_NAME, debounced);

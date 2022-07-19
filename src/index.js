@@ -12,20 +12,27 @@ class Size {
     this.width = 0
     this.height = 0
     this.hasBar = false
-    this.isLandscape = false
   }
 
   addListener (listener, context) {
+    this.add(listener, context)
+  }
+
+  add (listener, context) {
     emitter.on(EVENT_NAME, listener, context);
   }
 
   removeListener (listener, context) {
+   this.remove(listener, context)
+  }
+
+  remove (listener, context) {
     if(listener) emitter.off(EVENT_NAME, listener, context);
   }
 
   bind (opts) {
     opts = opts || {};
-    size.unbind();
+    this.unbind();
     const debounceTime = opts.debounceTime || 150;
     debounced = debounce(onEvent, debounceTime);
     window.addEventListener(EVENT_NAME, debounced);
