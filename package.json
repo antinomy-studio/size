@@ -2,10 +2,12 @@
   "name": "@antinomy-studio/size",
   "version": "3.0.0",
   "description": "Small util to centralize and debounce window 'resize' events.",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.js",
   "scripts": {
     "test": "browserify test/index.js | tap-closer | smokestack | faucet",
-    "test-debug": "budo test/index.js --live"
+    "test-debug": "budo test/index.js --live",
+    "build": "babel src -d --out-dir dist"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -23,20 +25,30 @@
     "viewport",
     "screen"
   ],
-  "author": "Florian Morel",
   "license": "MIT",
+  "engines": {
+    "node": ">=14.16"
+  },
   "bugs": {
     "url": "https://github.com/antinomy-studio/size/issues"
   },
   "homepage": "https://github.com/antinomy-studio/size#readme",
-  "devDependencies": {
-    "faucet": "0.0.1",
-    "smokestack": "^3.4.1",
-    "tap-closer": "^1.0.0",
-    "tape": "^4.5.1"
-  },
   "dependencies": {
-    "debounce": "^1.0.0",
-    "tiny-emitter": "^1.0.2"
+    "@antinomy-studio/sniffer": "git+https://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:x-oauth-basic@github.com/antinomy-studio/sniffer.git",
+    "debounce": "^1.2.1",
+    "tiny-emitter": "^2.1.0"
+  },
+  "devDependencies": {
+    "budo": "^11.7.0",
+    "browserify": "^17.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.5",
+    "babel-preset-env": "^1.7.0",
+    "webpack-cli": "^4.10.0",
+    "faucet": "0.0.1",
+    "smokestack": "^3.6.0",
+    "tap-closer": "^1.0.0",
+    "tape": "^5.5.3"
   }
 }
