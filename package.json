@@ -1,6 +1,6 @@
 {
   "name": "@antinomy-studio/size",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Small util to centralize and debounce window 'resize' events.",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "viewport",
     "screen"
   ],
-  "author": "Florian Morel",
+  "author": "Antinomy Studio",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/antinomy-studio/size/issues"
