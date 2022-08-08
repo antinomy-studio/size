@@ -1,6 +1,6 @@
 {
   "name": "@antinomy-studio/size",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Small util to centralize and debounce window 'resize' events.",
   "type": "module",
   "main": "src/index.js",
@@ -25,6 +25,7 @@
     "viewport",
     "screen"
   ],
+  "author": "Antinomy Studio",
   "license": "MIT",
   "engines": {
     "node": ">=14.16"

@@ -1,6 +1,8 @@
 size.js
 ===
 
+⚠️ This is a fork from @ayamflow's repository. https://github.com/ayamflow/size
+
 Small util to centralize and debounce window 'resize' events.
 
 - Avoid accessing a global object (window)
@@ -11,18 +13,19 @@ Small util to centralize and debounce window 'resize' events.
 ## Install
 
 ```
-npm install antinomy-studio/size -S
+npm install @antinomy-studio/size --save
 ```
 
 ## Usage
 
 ```
-var size = require('size');
+import size from 'size'
 
-size.addListener(function(width, height) {
-    console.log('resized', width, height);
-});
-console.log(size.width);
+size.addListener((width, height) => {
+  console.log({ width, height })
+})
+
+console.log(size.width)
 ```
 
 ## Instance Methods
